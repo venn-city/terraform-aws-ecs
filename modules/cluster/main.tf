@@ -143,6 +143,12 @@ resource "aws_launch_configuration" "instance" {
     volume_type = "gp2"
   }
 
+  ebs_block_device {
+    device_name           = "/dev/xvdcz"
+    volume_size           = "${var.instance_ecs_volume_size}"
+    volume_type           = "gp2"
+  }
+
   lifecycle {
     create_before_destroy = true
   }

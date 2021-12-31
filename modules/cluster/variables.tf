@@ -38,6 +38,11 @@ variable "instance_root_volume_size" {
   default     = 50
 }
 
+variable "instance_ecs_volume_size" {
+  description = "ECS volume size (default=100)"
+  default     = 100
+}
+
 variable "instance_type" {
   description = "EC2 instance type (default=t2.micro)"
   default     = "t2.micro"
