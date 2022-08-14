@@ -87,7 +87,7 @@ resource "aws_security_group" "instance" {
   name        = "${var.name}-container-instance"
   description = "Security Group managed by Terraform"
   vpc_id      = "${var.vpc_id}"
-  tags        = "${merge(var.tags, map({
+  tags        = "${merge(var.tags, tomap({
     "Name" = format("%s-container-instance", var.name)
     }))}"
 }
