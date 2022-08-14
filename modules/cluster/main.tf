@@ -8,7 +8,9 @@ resource "aws_ecs_cluster" "ecs" {
 
 resource "aws_cloudwatch_log_group" "instance" {
   name = "${var.instance_log_group != "" ? var.instance_log_group : format("%s-instance", var.name)}"
-  tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"
+  tags = "${merge(var.tags, tomap({
+    "Name" = format("%s", var.name)
+    }))}"
 }
 
 data "aws_iam_policy_document" "instance_policy" {
